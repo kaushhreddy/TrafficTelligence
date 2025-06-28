@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrafficTelligence | Predict Traffic Volume</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1655801508544-7b67dcd7cf89?q=80&w=2080&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: 30px 50px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(204, 6, 6, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(5px);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        select option {
+            color: #000;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            color: #ccc;
+            font-size: 13px;
+        }
+
+        .right-title {
+            position: fixed;
+            top: 35%;
+            right: 60px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgb(96, 95, 95), 0 0 40px rgba(71, 70, 70, 0.5); /* No blue glow */
+            z-index: 999;
+        }
+
+        .right-highlight {
+            position: fixed;
+            top: 50%;
+            right: 60px;
+            font-size: 34px;
+            font-weight: bold;
+            color: #b01616;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 18px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 20px red, 0 0 40px rgba(204, 6, 6, 0.5);
+            z-index: 999;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Form Container -->
+    <div class="container">
+        <h1>Enter Details :</h1>
+        <form action="/predict" method="post">
+
+            <label for="holiday">Holiday</label>
+            <select name="holiday" id="holiday" required>
+                <option value="None">None</option>
+                <option value="Labor Day">Labor Day</option>
+                <option value="Thanksgiving Day">Thanksgiving Day</option>
+                <option value="Christmas Day">Christmas Day</option>
+                <option value="New Year’s Day">New Year’s Day</option>
+                <option value="Independence Day">Independence Day</option>
+                <option value="Diwali">Diwali</option>
+                <option value="Eid">Eid</option>
+            </select>
+
+            <label for="rain">Rain</label>
+            <select name="rain" id="rain" required>
+                <option value="0">None</option>
+                <option value="0.5">Light Rain (0.5 mm)</option>
+                <option value="2.0">Moderate Rain (2 mm)</option>
+                <option value="5.0">Heavy Rain (5 mm)</option>
+                <option value="10.0">Very Heavy Rain (10 mm)</option>
+            </select>
+
+            <label for="snow">Snow</label>
+            <select name="snow" id="snow" required>
+                <option value="0">None</option>
+                <option value="0.5">Light Snow (0.5 mm)</option>
+                <option value="2.0">Moderate Snow (2 mm)</option>
+                <option value="5.0">Heavy Snow (5 mm)</option>
+            </select>
+
+            <label for="temp">Temperature (°C)</label>
+            <select name="temp" id="temp" required>
+                <option value="-5">Very Cold (&lt; -5°C)</option>
+                <option value="5">Cold (0 - 10°C)</option>
+                <option value="15">Mild (10 - 20°C)</option>
+                <option value="25">Warm (20 - 30°C)</option>
+                <option value="35">Hot (&gt; 30°C)</option>
+            </select>
+
+            <label for="weather">Weather</label>
+            <select name="weather" id="weather" required>
+                <option value="Clear">Clear</option>
+                <option value="Clouds">Clouds</option>
+                <option value="Fog">Fog</option>
+                <option value="Haze">Haze</option>
+                <option value="Rain">Rain</option>
+                <option value="Snow">Snow</option>
+                <option value="Thunderstorm">Thunderstorm</option>
+            </select>
+
+            <label>Year</label>
+            <input type="number" name="year" required>
+            <label>Month</label>
+            <input type="number" name="month" required>
+            <label>Day</label>
+            <input type="number" name="day" required>
+            <label>Hours</label>
+            <input type="number" name="hours" required>
+            <label>Minutes</label>
+            <input type="number" name="minutes" required>
+            <label>Seconds</label>
+            <input type="number" name="seconds" required>
+
+            <input type="submit" value="Predict Traffic Volume">
+        </form>
+
+        {% if result %}
+            <h2 style="margin-top: 20px; color: lightgreen;">{{ result }}</h2>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 SmartInternz | TrafficTelligence ML Project
+    </div>
+
+    <!-- Decorative Right Labels -->
+    <div class="right-title">TrafficTelligence</div>
+    <div class="right-highlight">Traffic Volume Estimation</div>
+
+</body>
+</html>

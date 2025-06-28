@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrafficTelligence | Prediction Result</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1727643801785-29299db91580?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 100px 70px; /* LEFT side preserved */
+            background: rgba(0, 0, 0, 0.4);
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 0 25px rgba(204, 6, 6, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .prediction-box {
+            text-align: center;
+            border: 3px solid rgb(133, 19, 19);
+            border-radius: 12px;
+            padding: 25px;
+            background: rgba(146, 143, 143, 0.3);
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 0 15px rgba(211, 15, 15, 0.5); /* Added red glow */
+        }
+
+        .prediction-box .value {
+            margin-top: 10px;
+            font-size: 26px;
+            color: #4fff4f;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TrafficTelligence</h1>
+        <div class="prediction-box">
+            Predicted Traffic Volume:
+            <div class="value">{{ result }}</div>
+        </div>
+        <div style="text-align: center;">
+            <a href="/" class="btn">← Back to Prediction</a>
+        </div>
+        <div class="footer">
+            &copy; 2025 TrafficTelligence ML Project
+        </div>
+    </div>
+</body>
+</html>
