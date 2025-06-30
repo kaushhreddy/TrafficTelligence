@@ -153,7 +153,7 @@ Add graph analytics for traffic trends
 Demo Video
 --------------------------------------------------------------
 You can download or view the demo video here:  
-➡️ [DemoVideo/demo_file_name.mp4](https://github.com/kaushhreddy/TrafficTelligence/blob/main/DemoVideo/demo_file_name.mp4)
+➡ (https://drive.google.com/file/d/1rk3HVKpKoNjDJD7TenV2f4k4s70NEJ4l/view?usp=drive_link)
 
 
 Upload CSV for bulk prediction
