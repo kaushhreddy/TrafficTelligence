@@ -150,6 +150,12 @@ Integrate live weather APIs
 
 Add graph analytics for traffic trends
 
+Demo Video
+--------------------------------------------------------------
+You can download or view the demo video here:  
+➡️ [DemoVideo/demo_file_name.mp4](https://github.com/kaushhreddy/TrafficTelligence/blob/main/DemoVideo/demo_file_name.mp4)
+
+
 Upload CSV for bulk prediction
 
 License
