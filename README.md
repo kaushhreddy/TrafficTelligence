@@ -35,17 +35,27 @@ Environment: Google Colab for training, VS Code for deployment
 Folder Structure
 -----------------------------------------------------------
 TrafficTelligence/
-🔼 app.py                    # Flask application
-🔼 model.pkl                 # Trained machine learning model
-🔼 scaler.pkl                # Scaler for preprocessing input
-🔼 requirements.txt          # Python dependencies
-🔼 .gitignore                # Git ignore settings
-🔼 README.md                 # Project readme
-🔼 Data/
-🔼 └— Traffic Volume.csv    # Dataset used for training
-🔼 templates/
-🔼 ├— index.html            # Input form page
-🔼 └— final.html            # Output result page
+app.py                    # Flask application
+
+model.pkl                 # Trained machine learning model
+
+scaler.pkl                # Scaler for preprocessing input
+
+requirements.txt          # Python dependencies
+
+ .gitignore                # Git ignore settings
+ 
+ README.md                 # Project readme
+
+ Data/
+ 
+  Traffic Volume.csv    # Dataset used for training
+  
+ templates/
+ 
+  index.html            # Input form page
+  
+  final.html            # Output result page
 
 Setup Instructions
 ------------------------------------------------------------
